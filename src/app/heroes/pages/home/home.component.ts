@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from 'src/app/auth/interfaces/auth.interface';
+import { ServicesService } from 'src/app/auth/services.service';
 
 
 @Component({
@@ -13,7 +15,12 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private _router: Router ) { }
+  get auth(){
+    return this._authService.auth;
+  }
+
+  constructor( private _router: Router,
+               private _authService: ServicesService ) { }
 
   ngOnInit(): void {
   }
